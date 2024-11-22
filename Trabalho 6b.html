@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Informações sobre o Quarto Setor">
+  <meta name="author" content="Pietro Paiva">
+  <meta name="keywords" content="Quarto Setor, Sustentabilidade, Empresas Sociais, Educação">
+  <title>Quarto Setor - Pietro Paiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #74b9ff, #a29bfe);
+      color: #2d3436;
+    }
+    header {
+      background-color: #0984e3;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #6c5ce7;
+      margin-bottom: 1rem;
+    }
+    p {
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+    ul {
+      margin: 1rem 0;
+      padding-left: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #dfe6e9;
+      font-size: 0.9rem;
+    }
+    footer a {
+      text-decoration: none;
+      color: #0984e3;
+    }
+    .rating-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: #f1f2f6;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .rating-section h3 {
+      margin-bottom: 1rem;
+    }
+    .rating-section select, .rating-section button {
+      padding: 10px;
+      font-size: 1rem;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+    .rating-section button {
+      background-color: #0984e3;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .rating-section button:hover {
+      background-color: #074cbf;
+    }
+    .reaction {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #2d3436;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>O Quarto Setor</h1>
+    <p>Feito por Pietro Paiva, 6°B | Prof. Adrian</p>
+  </header>
+  <main>
+    <h2>O que é o Quarto Setor?</h2>
+    <p>O Quarto Setor representa um novo modelo de organização que combina o impacto social e ambiental das ONGs com a sustentabilidade financeira das empresas. É um setor formado por organizações e empresas que têm como objetivo gerar impacto positivo para a sociedade, sem abrir mão da eficiência econômica.</p>
+    <h2>Características principais:</h2>
+    <ul>
+      <li>Foco em sustentabilidade ambiental e social.</li>
+      <li>Modelos de negócio inovadores que equilibram lucro e propósito.</li>
+      <li>Empresas que promovem responsabilidade corporativa e mudanças positivas.</li>
+    </ul>
+    <h2>Exemplos de organizações do Quarto Setor</h2>
+    <p>Empresas de energia renovável, startups de impacto social e instituições financeiras éticas são exemplos de organizações que fazem parte do Quarto Setor. Essas empresas buscam soluções para problemas globais, como mudanças climáticas e desigualdade social.</p>
+    <div class="rating-section">
+      <h3>Dê sua nota para este trabalho:</h3>
+      <select id="rating">
+        <option value="" disabled selected>Escolha uma nota</option>
+        <option value="10">10 - Excelente! 🎉</option>
+        <option value="9">9 - Muito bom! 😄</option>
+        <option value="8">8 - Bom 👍</option>
+        <option value="7">7 - Satisfatório 🙂</option>
+        <option value="6">6 - Ok 😐</option>
+        <option value="5">5 - Pode melhorar 🤔</option>
+        <option value="4">4 - Razoável 😕</option>
+        <option value="3">3 - Ruim 😟</option>
+        <option value="2">2 - Muito ruim 😡</option>
+        <option value="1">1 - Horrível 😠</option>
+        <option value="0">0 - Péssimo 💔</option>
+      </select>
+      <button onclick="submitRating()">Enviar Nota</button>
+      <p id="reaction" class="reaction"></p>
+    </div>
+  </main>
+  <footer>
+    <p>Site criado por <strong>Pietro Paiva</strong>, 6°B | Professor: <strong>Adrian</strong></p>
+  </footer>
+
+  <script>
+    function submitRating() {
+      const rating = document.getElementById('rating').value;
+      const reaction = document.getElementById('reaction');
+
+      if (!rating) {
+        reaction.textContent = 'Por favor, escolha uma nota!';
+        reaction.style.color = 'red';
+        return;
+      }
+
+      const reactions = {
+        "10": "Obrigado pelo feedback incrível! 🎉",
+        "9": "Ficamos muito felizes que você gostou! 😄",
+        "8": "Que bom que achou bom! 👍",
+        "7": "Obrigado! Vamos melhorar ainda mais! 🙂",
+        "6": "Agradecemos o feedback! 😐",
+        "5": "Vamos tentar melhorar. 🤔",
+        "4": "Obrigado! Iremos trabalhar para melhorar. 😕",
+        "3": "Vamos rever nossos pontos fracos. 😟",
+        "2": "Sentimos muito que não gostou. 😡",
+        "1": "Trabalharemos para melhorar! 😠",
+        "0": "Que pena! Agradecemos a sinceridade. 💔"
+      };
+
+      reaction.textContent = reactions[rating];
+      reaction.style.color = '#2d3436';
+    }
+  </script>
+</body>
+</html>
